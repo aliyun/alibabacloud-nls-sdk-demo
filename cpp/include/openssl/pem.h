@@ -59,16 +59,16 @@
 #ifndef HEADER_PEM_H
 # define HEADER_PEM_H
 
-# include "e_os2.h"
+# include <openssl/e_os2.h>
 # ifndef OPENSSL_NO_BIO
-#  include "bio.h"
+#  include <openssl/bio.h>
 # endif
 # ifndef OPENSSL_NO_STACK
-#  include "stack.h"
+#  include <openssl/stack.h>
 # endif
-# include "evp.h"
-# include "x509.h"
-# include "pem2.h"
+# include <openssl/evp.h>
+# include <openssl/x509.h>
+# include <openssl/pem2.h>
 
 #ifdef  __cplusplus
 extern "C" {
@@ -446,7 +446,7 @@ int PEM_def_callback(char *buf, int num, int w, void *key);
 void PEM_proc_type(char *buf, int type);
 void PEM_dek_info(char *buf, const char *type, int len, char *str);
 
-# include "symhacks.h"
+# include <openssl/symhacks.h>
 
 DECLARE_PEM_rw(X509, X509)
 DECLARE_PEM_rw(X509_AUX, X509)

@@ -1,0 +1,38 @@
+-----2018/04/26-----
+本次更新如下：
+1. 首次发布。包含VS2013，VS2015，linux三个版本。
+
+-----2018/05/25-----
+1. 拆分Request对象接口，添加参数设置字段方法
+2. 解决链接重复关闭等BUG
+
+-----2018/06/19-----
+1. 添加语音合成接口
+2. 合并1.0代码
+3. 优化对外接口API
+
+-----2018/07/03-----
+1. 添加发送sleep时间获取API，优化Demo注释说明
+2. 解决部分内部BUG
+
+-----2018/07/12-----
+1. 解决task_id在部分linux环境下获取异常BUG
+2. 解决demo编译错误
+
+-----2018/07/12-----
+1. fix windows下超时设置错误
+2. fix linux下偶现gethostname异常
+
+-----2018/08/06-----
+1. 添加setPayloadParam()模版方法
+2. 修改bool值设置方式，从char *修改为bool
+3. speechTranscriberRequest.h 添加 语义参数设置接口 setSemanticSentenceDetection(bool)
+4. 添加加动态库jsoncpp
+5. 删除配置文件模块
+   createXXXXRequest(SpeechRecognizerCallback*, const char*) ---> createXXXXRequest(SpeechRecognizerCallback);
+6. 增加命名空间AlibabaNls
+7. 添加静音检测参数接口
+   setEnableVoiceDetection(bool);
+   setMaxStartSilence(int);
+   setMaxEndSilence(int);
+

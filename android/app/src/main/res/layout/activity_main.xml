@@ -9,59 +9,50 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:weightSum="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="识别内容:"
-            android:id="@+id/textView" />
-
-        <EditText
+        <Button
+            android:id="@+id/button4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:layout_weight="0.27" />
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:onClick="goRecognizerWithRecorder"
+            android:text="一句话识别简易版" />
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <Button
+            android:id="@+id/button3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:onClick="goRecognizer"
+            android:text="一句话识别" />
 
-            <Button
-                android:layout_width="169dp"
-                android:layout_height="wrap_content"
-                android:text="开始 录音"
-                android:onClick="asrClick"
-                android:id="@+id/button" />
-
-            <Button
-                android:layout_width="169dp"
-                android:layout_height="wrap_content"
-                android:text="结束 录音"
-                android:onClick="asrStop"
-                android:id="@+id/button2" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="完整结果:"
-            android:id="@+id/textView2" />
-
-        <EditText
+        <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText2"
-            android:layout_weight="0.58" />
+            android:layout_height="80dp"
+            android:text="实时长语音识别简易版"
+            android:onClick="goTranscriberWithRecorder"
+            android:id="@+id/button5" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="实时长语音识别"
+            android:onClick="goTranscriber"
+            android:id="@+id/button" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="语音合成"
+            android:onClick="goSynthesizer"
+            android:id="@+id/button2" />
+
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

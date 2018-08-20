@@ -5,6 +5,9 @@
 extern "C" {
 #endif
 /* OpenSSL was configured with the following options: */
+#ifndef OPENSSL_SYSNAME_WIN64A
+# define OPENSSL_SYSNAME_WIN64A
+#endif
 #ifndef OPENSSL_DOING_MAKEDEPEND
 
 
@@ -56,8 +59,8 @@ extern "C" {
 #ifndef OPENSSL_THREADS
 # define OPENSSL_THREADS
 #endif
-#ifndef OPENSSL_NO_DYNAMIC_ENGINE
-# define OPENSSL_NO_DYNAMIC_ENGINE
+#ifndef OPENSSL_NO_ASM
+# define OPENSSL_NO_ASM
 #endif
 
 /* The OPENSSL_NO_* macros are also defined as NO_* if the application
@@ -109,8 +112,6 @@ extern "C" {
 # endif
 #endif
 
-#define OPENSSL_CPUID_OBJ
-
 /* crypto/opensslconf.h.in */
 
 /* Generate 80386 code? */
@@ -118,8 +119,8 @@ extern "C" {
 
 #if !(defined(VMS) || defined(__VMS)) /* VMS uses logical names instead */
 #if defined(HEADER_CRYPTLIB_H) && !defined(OPENSSLDIR)
-#define ENGINESDIR "/usr/lib64/engines"
-#define OPENSSLDIR "/usr/ssl"
+#define ENGINESDIR "D:\\Code\\Tools\\openssl-install/lib/engines"
+#define OPENSSLDIR "D:\\Code\\Tools\\openssl-install/ssl"
 #endif
 #endif
 
@@ -127,6 +128,7 @@ extern "C" {
 #define OPENSSL_UNISTD <unistd.h>
 
 #undef OPENSSL_EXPORT_VAR_AS_FUNCTION
+#define OPENSSL_EXPORT_VAR_AS_FUNCTION
 
 #if defined(HEADER_IDEA_H) && !defined(IDEA_INT)
 #define IDEA_INT unsigned int
@@ -157,7 +159,7 @@ extern "C" {
  * This enables code handling data aligned at natural CPU word
  * boundary. See crypto/rc4/rc4_enc.c for further details.
  */
-#define RC4_CHUNK unsigned long
+#define RC4_CHUNK unsigned long long
 #endif
 #endif
 
@@ -176,8 +178,8 @@ extern "C" {
 /* Should we define BN_DIV2W here? */
 
 /* Only one for the following should be defined */
-#define SIXTY_FOUR_BIT_LONG
-#undef SIXTY_FOUR_BIT
+#undef SIXTY_FOUR_BIT_LONG
+#define SIXTY_FOUR_BIT
 #undef THIRTY_TWO_BIT
 #endif
 
@@ -220,7 +222,7 @@ extern "C" {
 /* Unroll the inner loop, this sometimes helps, sometimes hinders.
  * Very mucy CPU dependant */
 #ifndef DES_UNROLL
-#define DES_UNROLL
+#undef DES_UNROLL
 #endif
 
 /* These default values were supplied by

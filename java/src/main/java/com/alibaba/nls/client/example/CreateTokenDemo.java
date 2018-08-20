@@ -36,7 +36,8 @@ public class CreateTokenDemo {
         try {
             AccessToken accessToken = AccessToken.apply(akId, akSecrete);
             System.out.println("Created token: " + accessToken.getToken() +
-                    ", expire time: " + accessToken.getExpireTime());
+                    // 有效时间，单位为秒
+                    ", expire time(s): " + accessToken.getExpireTime());
         } catch (Exception e) {
             e.printStackTrace();
         }

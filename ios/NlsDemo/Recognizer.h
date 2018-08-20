@@ -21,17 +21,17 @@
 
 
 #import <UIKit/UIKit.h>
-#import "NlsVoiceRecorder.h"
-#import "NlsSdk/RecognizeRequest.h"
-#import "NlsSdk/RecognizeRequestParam.h"
+#import "NlsSdk/NlsVoiceRecorder.h"
+#import "NlsSdk/NlsSpeechRecognizerRequest.h"
+#import "NlsSdk/RecognizerRequestParam.h"
 #import "NlsSdk/NlsClientAdaptor.h"
 
 @interface Recognizer:UIViewController
 
 @property(nonatomic,strong) NlsClientAdaptor *nlsClient;
-@property(nonatomic,strong) RecognizeRequest *recognizeRequest;
+@property(nonatomic,strong) NlsSpeechRecognizerRequest *recognizeRequest;
 @property(nonatomic,strong) NlsVoiceRecorder *voiceRecorder;
-@property(nonatomic,strong) RecognizeRequestParam *recognizeRequestParam;
+@property(nonatomic,strong) RecognizerRequestParam *recognizeRequestParam;
 
 @property(atomic) Boolean record;
 

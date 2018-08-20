@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NewGatewaySdkDemo</string>
+    <string name="title_activity_speech_recognizer">语音识别</string>
 </resources>

@@ -20,17 +20,9 @@
  */
 
 #import "ViewController.h"
-#import "Recognizer.h"
 
 @interface ViewController () {
-    
-    IBOutlet UIButton *asrButton;
-
 }
-
-
-- (IBAction)asrClick;
-
 @end
 
 
@@ -39,34 +31,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)asrClick {
-    NSLog(@"asrClick");
-    Recognizer *recognizer = [[Recognizer alloc]init];
-    [self.navigationController pushViewController: recognizer animated:true];
-}
 
-- (IBAction)ttsClick {
-    
-}
-
-- (IBAction)RecognizerClick{
-    
-
-}
-
-
-- (IBAction)unwindSegueToViewController:(UIStoryboardSegue *)segue {
-    
+- (IBAction)unwindSegueToViewController:(UIStoryboardSegue *)segue {    
 }
 @end
 

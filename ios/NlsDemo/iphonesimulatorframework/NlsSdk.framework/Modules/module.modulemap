@@ -1,6 +1,0 @@
-framework module NlsSdk {
-  umbrella header "NlsSdk.h"
-
-  export *
-  module * { export * }
-}

@@ -17,7 +17,11 @@
 #ifndef NLS_SDK_CLIENT_H
 #define NLS_SDK_CLIENT_H
 
-#ifdef _WINDOWS_COMPILE_
+#ifdef _WIN32
+
+#pragma warning( push )
+#pragma warning ( disable : 4251 )
+
 #ifndef  ASR_API
 #define ASR_API _declspec(dllexport)
 #endif
@@ -27,78 +31,76 @@
 
 #include "pthread.h"
 
+namespace AlibabaNls {
+
 class SpeechRecognizerCallback;
 class SpeechRecognizerRequest;
+class SpeechTranscriberCallback;
+class SpeechTranscriberRequest;
+class SpeechSynthesizerCallback;
+class SpeechSynthesizerRequest;
+
+enum LogLevel {
+    LogError = 1,
+    LogWarning,
+    LogInfo,
+    LogDebug
+};
 
 class ASR_API NlsClient {
 public:
 
-~NlsClient();
-
 /** 
     * @brief 设置日志文件与存储路径
     * @param logOutputFile	日志文件
-    * @param logLevel	日志级别，默认1（Error : 1、Warn : 2、Debug : 3）
+    * @param logLevel	日志级别，默认1（LogError : 1, LogWarning : 2, LogInfo : 3, LogDebug : 4）
+    * @param logFileSize 日志文件的大小，以MB为单位，默认为10MB；
+    *                    如果日志文件内容的大小超过这个值，SDK会自动备份当前的日志文件，最多可备份5个文件，超过后会循环覆盖已有文件
     * @return 成功则返回0，失败返回-1
     */	
-int setLogConfig(const char* logOutputFile, int logLevel);
+int setLogConfig(const char* logOutputFile, LogLevel logLevel, unsigned int logFileSize = 10);
 
 /**
-    * @brief 创建speechRecognizerRequest对象
+    * @brief 创建一句话识别对象
     * @param onResultReceivedEvent	事件回调接口
-    * @param config	配置文件
     * @return 成功返回speechRecognizerRequest对象，否则返回NULL
     */
-SpeechRecognizerRequest* createRecognizerRequest(SpeechRecognizerCallback* onResultReceivedEvent,
-                                                 const char* config);
+SpeechRecognizerRequest* createRecognizerRequest(SpeechRecognizerCallback* onResultReceivedEvent);
 
-///**
-//    * @brief 创建语音识别NlsRequest对象
-//    * @param onResultReceivedEvent	事件回调接口
-//    * @param config	配置文件
-//    * @return 成功则NlsRequest对象，否则返回NULL
-//    */
-//NlsRequest* createRecognizerRequest(NlsSpeechCallback* onResultReceivedEvent, const char* config);
-//
-///**
-//    * @brief 创建语音合成NlsRequest对象
-//    * @param onResultReceivedEvent	事件回调接口
-//    * @param config	配置文件
-//    * @return 成功则NlsRequest对象，否则返回NULL
-//    */
-//NlsRequest* createSynthesisRequestRequest(NlsSpeechCallback* onResultReceivedEvent, const char* config);
-//
-///**
-//    * @brief 创建云端唤醒NlsRequest对象
-//    * @param onResultReceivedEvent	事件回调接口
-//    * @param config	配置文件
-//    * @return 成功则NlsRequest对象，否则返回NULL
-//    */
-//NlsRequest* createWakeWordVerifierRequest(NlsSpeechCallback* onResultReceivedEvent, const char* config);
-//
-///**
-//    * @brief 创建天宫NlsRequest对象
-//    * @param onResultReceivedEvent	事件回调接口
-//    * @param config	配置文件
-//    * @return 成功则NlsRequest对象，否则返回NULL
-//    */
-//NlsRequest* createTiangongAssistantRequest(NlsSpeechCallback* onResultReceivedEvent, const char* config);
-//
-///**
-//    * @brief 创建声纹识别NlsRequest对象
-//    * @param onResultReceivedEvent	事件回调接口
-//    * @param config	配置文件
-//    * @return 成功则NlsRequest对象，否则返回NULL
-//    */
-//NlsRequest* createVoiceprintRecognizerRequest(NlsSpeechCallback* onResultReceivedEvent, const char* config);
-//
-///**
-//    * @brief 创建声纹管理NlsRequest对象
-//    * @param onResultReceivedEvent	事件回调接口
-//    * @param config	配置文件
-//    * @return 成功则NlsRequest对象，否则返回NULL
-//    */
-//NlsRequest* createVoiceprintManagerRequest(NlsSpeechCallback* onResultReceivedEvent, const char* config);
+/**
+    * @brief 销毁一句话识别对象
+    * @param request  createRecognizerRequest所建立的request对象
+    * @return
+    */
+void releaseRecognizerRequest(SpeechRecognizerRequest* request);
+
+/**
+    * @brief 创建实时音频流识别对象
+    * @param onResultReceivedEvent	事件回调接口
+    * @return 成功返回SpeechTranscriberRequest对象，否则返回NULL
+    */
+SpeechTranscriberRequest* createTranscriberRequest(SpeechTranscriberCallback* onResultReceivedEvent);
+
+/**
+    * @brief 销毁实时音频流识别对象
+    * @param request  createTranscriberRequest所建立的request对象
+    * @return
+    */
+void releaseTranscriberRequest(SpeechTranscriberRequest* request);
+
+/**
+    * @brief 创建语音合成对象
+    * @param onResultReceivedEvent	事件回调接口
+    * @return 成功则SpeechSynthesizerRequest对象，否则返回NULL
+    */
+SpeechSynthesizerRequest* createSynthesizerRequest(SpeechSynthesizerCallback* onResultReceivedEvent);
+
+/**
+    * @brief 销毁语音合成对象
+    * @param request  createSynthesizerRequest所建立的request对象
+    * @return
+    */
+void releaseSynthesizerRequest(SpeechSynthesizerRequest* request);
 
 /**
     * @brief NlsClient对象实例
@@ -107,14 +109,28 @@ SpeechRecognizerRequest* createRecognizerRequest(SpeechRecognizerCallback* onRes
     */
 static NlsClient* getInstance(bool sslInitial = true);
 
+/**
+    * @brief 销毁NlsClient对象实例
+    * @note releaseInstance()非线程安全.
+    * @return
+    */
+static void releaseInstance();
+
 private:
 
 NlsClient();
+~NlsClient();
 
 static pthread_mutex_t _mtx;
 static bool _isInitializeSSL;
 static NlsClient* _instance;
 
 };
+
+}
+
+#ifdef _WIN32
+#pragma warning( pop )
+#endif
 
 #endif

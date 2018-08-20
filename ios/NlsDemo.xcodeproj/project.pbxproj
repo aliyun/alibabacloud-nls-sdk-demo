@@ -13,10 +13,14 @@
 		9F3FF9EB202040FE006F9E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F3FF9EA202040FE006F9E54 /* Assets.xcassets */; };
 		9F3FF9EE202040FE006F9E54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F3FF9EC202040FE006F9E54 /* LaunchScreen.storyboard */; };
 		9F3FF9F1202040FE006F9E54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3FF9F0202040FE006F9E54 /* main.m */; };
-		B64AF8E4208F2A1B003CA339 /* NlsVoiceRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = B64AF8E2208F2A1B003CA339 /* NlsVoiceRecorder.m */; };
+		B6354B6D20E2404D00890A7B /* Synthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6354B6C20E2404D00890A7B /* Synthesizer.m */; };
+		B6354B7420E25F2500890A7B /* NLSPlayAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = B6354B7220E25F2500890A7B /* NLSPlayAudio.m */; };
+		B6354B7F20E32D3E00890A7B /* Transcriber.m in Sources */ = {isa = PBXBuildFile; fileRef = B6354B7E20E32D3E00890A7B /* Transcriber.m */; };
 		B65581C120A1C2B7008BBBB9 /* Recognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B65581C020A1C2B6008BBBB9 /* Recognizer.m */; };
-		B676949C20BFD2C4006E67DB /* NlsSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B676949B20BFD2C4006E67DB /* NlsSdk.framework */; };
-		B676949D20BFD2C4006E67DB /* NlsSdk.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B676949B20BFD2C4006E67DB /* NlsSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B690BBE720E4E44E00860A27 /* NlsSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B690BBE620E4E44E00860A27 /* NlsSdk.framework */; };
+		B690BBE820E4E44E00860A27 /* NlsSdk.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B690BBE620E4E44E00860A27 /* NlsSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B6BF8185210AFAA500A572BD /* RecognizerwithRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF8184210AFAA500A572BD /* RecognizerwithRecorder.m */; };
+		B6BF81A921119F3800A572BD /* TranscriberwithRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF81A821119F3800A572BD /* TranscriberwithRecorder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +30,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B676949D20BFD2C4006E67DB /* NlsSdk.framework in CopyFiles */,
+				B690BBE820E4E44E00860A27 /* NlsSdk.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,11 +47,19 @@
 		9F3FF9ED202040FE006F9E54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F3FF9EF202040FE006F9E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F3FF9F0202040FE006F9E54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B64AF8E2208F2A1B003CA339 /* NlsVoiceRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NlsVoiceRecorder.m; sourceTree = "<group>"; };
-		B64AF8E3208F2A1B003CA339 /* NlsVoiceRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NlsVoiceRecorder.h; sourceTree = "<group>"; };
+		B6354B6C20E2404D00890A7B /* Synthesizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Synthesizer.m; sourceTree = "<group>"; };
+		B6354B6E20E2406000890A7B /* Synthesizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Synthesizer.h; sourceTree = "<group>"; };
+		B6354B7220E25F2500890A7B /* NLSPlayAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLSPlayAudio.m; sourceTree = "<group>"; };
+		B6354B7320E25F2500890A7B /* NLSPlayAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLSPlayAudio.h; sourceTree = "<group>"; };
+		B6354B7D20E32CF300890A7B /* Transcriber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transcriber.h; sourceTree = "<group>"; };
+		B6354B7E20E32D3E00890A7B /* Transcriber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transcriber.m; sourceTree = "<group>"; };
 		B65581BF20A1C25F008BBBB9 /* Recognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Recognizer.h; sourceTree = "<group>"; };
 		B65581C020A1C2B6008BBBB9 /* Recognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Recognizer.m; sourceTree = "<group>"; };
-		B676949B20BFD2C4006E67DB /* NlsSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NlsSdk.framework; path = NlsDemo/iphonesimulatorframework/NlsSdk.framework; sourceTree = "<group>"; };
+		B690BBE620E4E44E00860A27 /* NlsSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NlsSdk.framework; path = NlsDemo/NlsSdk.framework; sourceTree = "<group>"; };
+		B6BF8183210AFAA500A572BD /* RecognizerwithRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognizerwithRecorder.h; sourceTree = "<group>"; };
+		B6BF8184210AFAA500A572BD /* RecognizerwithRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognizerwithRecorder.m; sourceTree = "<group>"; };
+		B6BF81A721119F3800A572BD /* TranscriberwithRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranscriberwithRecorder.h; sourceTree = "<group>"; };
+		B6BF81A821119F3800A572BD /* TranscriberwithRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranscriberwithRecorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B676949C20BFD2C4006E67DB /* NlsSdk.framework in Frameworks */,
+				B690BBE720E4E44E00860A27 /* NlsSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +77,7 @@
 		9F3FF9D5202040FD006F9E54 = {
 			isa = PBXGroup;
 			children = (
-				B676949B20BFD2C4006E67DB /* NlsSdk.framework */,
+				B690BBE620E4E44E00860A27 /* NlsSdk.framework */,
 				9F3FF9E0202040FD006F9E54 /* NlsDemo */,
 				9F3FF9DF202040FD006F9E54 /* Products */,
 				B6C7DA4520BD821D0027223B /* Frameworks */,
@@ -83,13 +95,21 @@
 		9F3FF9E0202040FD006F9E54 /* NlsDemo */ = {
 			isa = PBXGroup;
 			children = (
-				B64AF8E1208F29BF003CA339 /* utils */,
+				B690BBE520E4E2E900860A27 /* utils */,
 				9F3FF9E1202040FE006F9E54 /* AppDelegate.h */,
 				9F3FF9E2202040FE006F9E54 /* AppDelegate.m */,
 				9F3FF9E4202040FE006F9E54 /* ViewController.h */,
 				9F3FF9E5202040FE006F9E54 /* ViewController.m */,
 				B65581BF20A1C25F008BBBB9 /* Recognizer.h */,
 				B65581C020A1C2B6008BBBB9 /* Recognizer.m */,
+				B6BF8183210AFAA500A572BD /* RecognizerwithRecorder.h */,
+				B6BF8184210AFAA500A572BD /* RecognizerwithRecorder.m */,
+				B6354B7D20E32CF300890A7B /* Transcriber.h */,
+				B6354B7E20E32D3E00890A7B /* Transcriber.m */,
+				B6BF81A721119F3800A572BD /* TranscriberwithRecorder.h */,
+				B6BF81A821119F3800A572BD /* TranscriberwithRecorder.m */,
+				B6354B6E20E2406000890A7B /* Synthesizer.h */,
+				B6354B6C20E2404D00890A7B /* Synthesizer.m */,
 				9F3FF9E7202040FE006F9E54 /* Main.storyboard */,
 				9F3FF9EA202040FE006F9E54 /* Assets.xcassets */,
 				9F3FF9EC202040FE006F9E54 /* LaunchScreen.storyboard */,
@@ -99,13 +119,13 @@
 			path = NlsDemo;
 			sourceTree = "<group>";
 		};
-		B64AF8E1208F29BF003CA339 /* utils */ = {
+		B690BBE520E4E2E900860A27 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				B64AF8E3208F2A1B003CA339 /* NlsVoiceRecorder.h */,
-				B64AF8E2208F2A1B003CA339 /* NlsVoiceRecorder.m */,
+				B6354B7320E25F2500890A7B /* NLSPlayAudio.h */,
+				B6354B7220E25F2500890A7B /* NLSPlayAudio.m */,
 			);
-			name = utils;
+			path = utils;
 			sourceTree = "<group>";
 		};
 		B6C7DA4520BD821D0027223B /* Frameworks */ = {
@@ -187,11 +207,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B64AF8E4208F2A1B003CA339 /* NlsVoiceRecorder.m in Sources */,
 				9F3FF9E6202040FE006F9E54 /* ViewController.m in Sources */,
+				B6354B6D20E2404D00890A7B /* Synthesizer.m in Sources */,
+				B6354B7420E25F2500890A7B /* NLSPlayAudio.m in Sources */,
 				9F3FF9F1202040FE006F9E54 /* main.m in Sources */,
 				B65581C120A1C2B7008BBBB9 /* Recognizer.m in Sources */,
+				B6BF8185210AFAA500A572BD /* RecognizerwithRecorder.m in Sources */,
 				9F3FF9E3202040FE006F9E54 /* AppDelegate.m in Sources */,
+				B6354B7F20E32D3E00890A7B /* Transcriber.m in Sources */,
+				B6BF81A921119F3800A572BD /* TranscriberwithRecorder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +382,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7DN2C9J648;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (

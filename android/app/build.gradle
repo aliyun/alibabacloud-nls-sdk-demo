@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "nls.idst.alibaba.com.newgatewaysdkdemo"
+        applicationId "com.alibaba.idst.nls.demo.newgatewaysdkdemo"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
@@ -25,9 +25,9 @@ repositories {
 
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.alibaba:fastjson:1.1.56.android'
-    implementation (name:'nlssdk',ext:'aar')
+    implementation 'com.android.support:design:26.1.0'
 }

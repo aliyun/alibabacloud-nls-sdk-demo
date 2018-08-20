@@ -1,25 +1,23 @@
-cmake_minimum_required(VERSION 2.4)
+cmake_minimum_required(VERSION 2.6)
 project(speech-demo)
 
-if(UNIX)
-    message("this operation platform is UNIX")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_GLIBCXX_USE_CXX11_ABI -lpthread -D_GNU_ -ldl")
-endif()
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_SOURCE_DIR}/include/openssl)
 
-link_directories(${CMAKE_SOURCE_DIR}/lib)
+link_directories(${CMAKE_SOURCE_DIR}/lib/linux)
 
-add_executable(speechRecognizerFileDemo demo/speechRecognizerFileDemo.cpp)
+add_executable(srDemo demo/speechRecognizerDemo.cpp)
 
-if(UNIX)
-	target_link_libraries(speechRecognizerFileDemo
-				${CMAKE_SOURCE_DIR}/lib/linux/libnlscppsdk.so
-				${CMAKE_SOURCE_DIR}/lib/linux/libssl.so 
-				${CMAKE_SOURCE_DIR}/lib/linux/libcrypto.so
-				${CMAKE_SOURCE_DIR}/lib/linux/libopus.so)
-endif()
+target_link_libraries(srDemo nlsCppSdk ssl crypto opus uuid pthread jsoncpp)
+
+add_executable(syDemo demo/speechSynthesizerDemo.cpp)
+
+target_link_libraries(syDemo nlsCppSdk ssl crypto opus uuid pthread jsoncpp)
+
+add_executable(stDemo demo/speechTranscriberDemo.cpp)
+
+target_link_libraries(stDemo nlsCppSdk ssl crypto opus uuid pthread jsoncpp)
 
 SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/demo) 
 
